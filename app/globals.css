@@ -124,6 +124,10 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@theme inline {
+  --font-mono: var(--font-jetbrains-mono);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -135,3 +139,4 @@
     @apply font-mono;
   }
 }
+

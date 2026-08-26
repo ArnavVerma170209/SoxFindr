@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils";
 const navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className=" w-screen flex lg:justify-center border-b border-mist-900 h-full">
+    <div className=" w-screen  font-mono flex lg:justify-center border-b border-mist-900 h-20 fixed backdrop-blur-lg ">
 
-    <div className="flex xl:gap-52 bg-mist-950/50 xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-20  font-bold text-2xl items-center justify-between backdrop-blur-lg  px-10 border-mist-900">
-     <Link href="/"> <div>
+    <div className="flex xl:gap-52   xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-20  font-bold text-2xl items-center justify-between backdrop-blur-lg  px-10 lg:px-0 ">
+     <Link href="/" className="h-full flex justify-center items-center border-x border-x-mist-800/50 w-20"> <div>
         
         <Image
           src="/logo.svg"
