@@ -6,14 +6,14 @@ import { HoverBorderGradient } from "./ui/hover-button-gradient"
 import { useState } from "react"
 import { MenuIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Show, SignInButton } from "@clerk/nextjs";
+import { Show } from "@clerk/nextjs";
 
 const navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className=" w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/50 h-20 fixed backdrop-blur-lg ">
+    <div className=" w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-20 fixed backdrop-blur-lg ">
 
-    <div className="flex xl:gap-52   xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-20  font-bold text-2xl items-center justify-between backdrop-blur-lg  px-10 lg:px-0 ">
+    <div className="flex xl:gap-52   xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-20  font-bold text-2xl items-center justify-between   px-10 lg:px-0 ">
      <Link href="/" className="h-full flex justify-center items-center border-x border-x-mist-800/50 w-20"> <div>
         
         <Image

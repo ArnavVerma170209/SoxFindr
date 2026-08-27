@@ -1,13 +1,16 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { db } from ".";
 import { users } from './schema'
+import { eq } from "drizzle-orm";
 export async function getOrCreateUser(){
     const { userId} = await auth()
     if (!userId) return null;
 
-    const existingUser = await db.query.users.findFirst({
-        where : (users, { eq }) => eq(users.id, userId),
-    });
+    const existingUser = await db
+    .select()
+    .from(users)
+    .where(eq(users.id, userId))
+    .limit(1);
 
     if (existingUser) return existingUser;
 

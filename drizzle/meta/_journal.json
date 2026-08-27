@@ -22,6 +22,20 @@
       "when": 1787828028281,
       "tag": "0002_tense_matthew_murdock",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1787829183315,
+      "tag": "0003_bumpy_kang",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1787829490850,
+      "tag": "0004_exotic_dreadnoughts",
+      "breakpoints": true
     }
   ]
 }

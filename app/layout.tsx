@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-mist-950 font-sans">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-mist-950 font-sans">
         <ClerkProvider>
 
         <SmoothScroll/> 

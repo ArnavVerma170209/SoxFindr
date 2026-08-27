@@ -27,11 +27,10 @@ export const users = pgTable("users", {
 });
 
 export const societies = pgTable("societies", {
-  id: text("id").primaryKey(),
+ id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
   name: text("name").notNull(),
   category: text("category").notNull(),
   description: text("description").notNull(),
-  deadline: timestamp("deadline").notNull(),
 });
 
 export const applications = pgTable("applications", {
@@ -55,3 +54,5 @@ export const applications = pgTable("applications", {
     .notNull()
     .references(() => societies.id),
 });
+
+export type Society = typeof societies.$inferSelect;
