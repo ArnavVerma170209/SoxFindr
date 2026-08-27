@@ -146,7 +146,7 @@
 
 .screen{
   background-image: url("/layered-waves-haikei.svg");
-  background-size: cover;
+  background-size:cover;
 }
 
 body::before {

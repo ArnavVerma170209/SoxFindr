@@ -19,11 +19,11 @@ const Hero = () => {
         </TextAnimate>
       </div >
       <div className="flex gap-2 ">
-      <p className="flex text-mist-100 bg-[#7562EB] font-normal w-min rounded-full px-2 py-1 mt-2 text-[12px] tracking-tighter gap-4 ">
+      {/* <p className="flex text-mist-100 bg-[#de9228] font-normal w-min rounded-full px-2 py-1 mt-2 text-[12px] tracking-tighter gap-4 ">
         Trusted
-      </p>   
-       <p className="flex bg-[#7562EB] text-mist-100 font-normal  rounded-full px-2 py-1 mt-2 text-[12px] tracking-tighter gap-4 ">
-        Reccomended By Seniors 
+      </p>    */}
+       <p className="flex bg-[#de9228] text-mist-100 font-normal  rounded-full px-2 py-1 mt-2 text-[12px] tracking-tighter gap-4 ">
+        By the students, For the students
       </p>
       </div>
       <Countdown targetDate="2026-09-18T00:00:00" />

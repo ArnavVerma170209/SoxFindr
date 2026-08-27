@@ -1,5 +1,6 @@
 import type { Society } from "@/db/schema";
 import { cn } from "@/lib/utils";
+import { TextAnimate } from "../ui/text-animate";
 
 const categoryColors: Record<string, string> = {
   Technical: "#7562eb",
@@ -12,11 +13,12 @@ const Card = (soc: Society) => {
   const color = categoryColors[soc.category] ?? "#7562eb";
 
   return (
-    <div className="lg:h-full h-72  flex flex-col justify-between px-4 py-3 text-mist-100 w-full bg-mist-800 rounded-xl">
+    <div className="lg:h-full h-76  flex flex-col justify-between px-4 py-3 text-mist-100 w-full bg-mist-800 rounded-xl">
       <div className="flex h-full flex-col justify-between">
        <div>
-        <span className="font-mono text-[22px] font-bold">
-          {soc.name}
+
+        <span className="font-mono lg:text-[22px] text-[24px] font-bold">
+         {soc.name} 
         </span>
 
         <br />
@@ -36,7 +38,7 @@ const Card = (soc: Society) => {
 </div>
         <br />
 
-        <p className="font-mont tracking-tighter  flex h-full items-end justify-end ">
+        <p className="font-mont tracking-tighter text-[18px]  flex h-full items-end justify-end ">
           {soc.description}
         </p>
       </div>
