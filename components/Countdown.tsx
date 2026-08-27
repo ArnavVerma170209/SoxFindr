@@ -38,28 +38,28 @@ export default function Countdown({ targetDate }: CountdownProps) {
   }, [targetDate]);
 
   return (
-    <div className="flex gap-3 tracking-normal font-mono">
+    <div className="flex gap-3 xl:-mt-6 -mt-4 tracking-normal font-mono">
       <div>
-        <span className="text-7xl font-bold">{timeLeft.days}</span>
+        <span className="xl:text-7xl text-5xl font-bold">{timeLeft.days}</span>
         <span className="ml-1 text-sm">D</span>
       </div>
 
       <div>
-        <span className="text-7xl font-bold">
+        <span className="xl:text-7xl text-5xl font-bold">
           {String(timeLeft.hours).padStart(2, "0")}
         </span>
         <span className="ml-1 text-sm">H</span>
       </div>
 
       <div>
-        <span className="text-7xl font-bold">
+        <span className="xl:text-7xl text-5xl font-bold">
           {String(timeLeft.minutes).padStart(2, "0")}
         </span>
         <span className="ml-1 text-sm">M</span>
       </div>
 
       <div>
-        <span className="text-7xl font-bold">
+        <span className="xl:text-7xl text-5xl font-bold">
           {String(timeLeft.seconds).padStart(2, "0")}
         </span>
         <span className="ml-1 text-sm">S</span>

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1787819892204,
+      "tag": "0000_daily_omega_flight",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1787823507527,
+      "tag": "0001_greedy_paper_doll",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1787828028281,
+      "tag": "0002_tense_matthew_murdock",
+      "breakpoints": true
+    }
+  ]
+}

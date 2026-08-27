@@ -6,11 +6,12 @@ import { HoverBorderGradient } from "./ui/hover-button-gradient"
 import { useState } from "react"
 import { MenuIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Show, SignInButton } from "@clerk/nextjs";
 
 const navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className=" w-screen  font-mono flex lg:justify-center border-b border-mist-900 h-20 fixed backdrop-blur-lg ">
+    <div className=" w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/50 h-20 fixed backdrop-blur-lg ">
 
     <div className="flex xl:gap-52   xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-20  font-bold text-2xl items-center justify-between backdrop-blur-lg  px-10 lg:px-0 ">
      <Link href="/" className="h-full flex justify-center items-center border-x border-x-mist-800/50 w-20"> <div>
@@ -42,26 +43,43 @@ const navbar = () => {
           </Button>
         </Link>
       </div> <div className="flex gap-10">
-      <Link href="/">
+        <Show when="signed-out">
+      <Link href="/login">
+        <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="bg-white hidden lg:block text-sm  font-bold hover:bg-mist-200 hover:text-mist-800 transition duration-1000 text-mist-950  space-x-2"
+            clockwise={false}
+          >
+            <span>
+              Register
+            </span>
+          </HoverBorderGradient>
+       
+        </Link></Show>
+        <Show when="signed-in">
+          <Link href="/dashboard">
           <HoverBorderGradient
             containerClassName="rounded-full"
             as="button"
             className="bg-white hidden lg:block text-sm  font-bold hover:bg-mist-200 hover:text-mist-800 transition duration-1000 text-mist-950  space-x-2"
             clockwise={false}
           >
-            <span>Register</span>
+            <span>
+              Dashboard
+            </span>
           </HoverBorderGradient>
-        <MenuIcon
+          </Link></Show>
+         <MenuIcon
             onClick={() => setIsExpanded(true)}
             className="h-8 w-8 text-white block lg:hidden"
           />
-        </Link>
       </div>
     </div>
      <div
         className={cn(
-          "flex xl:hidden bg-transparent fixed z-10",
-          // isExpanded && "top-0 transition duration-500"
+          "flex xl:hidden bg-mist-900/70 backdrop-blur-2xl fixed z-10",
+          isExpanded && "top-0 transition duration-500"
         )}
       >
         <div
