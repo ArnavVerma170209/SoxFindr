@@ -11,7 +11,9 @@ import { Show } from "@clerk/nextjs";
 const navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className=" w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-20 fixed backdrop-blur-lg ">
+    <div className={cn("z-1000000 w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-20 fixed backdrop-blur-lg ", 
+      isExpanded && "bg-mist-900"
+     )}>
 
     <div className="flex xl:gap-52   xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-20  font-bold text-2xl items-center justify-between   px-10 lg:px-0 ">
      <Link href="/" className="h-full flex justify-center items-center border-x border-x-mist-800/50 w-20"> <div>
@@ -21,6 +23,7 @@ const navbar = () => {
           alt="SoxFindr Logo"
           width={40}
           height={40}
+          className={cn(isExpanded && "hidden")}
         />
       </div>
       </Link>
@@ -68,13 +71,15 @@ const navbar = () => {
           </Link></Show>
          <MenuIcon
             onClick={() => setIsExpanded(true)}
-            className="h-8 w-8 text-white block lg:hidden"
+            className={cn("h-8 w-8 text-white block lg:hidden", 
+              isExpanded && "hidden"
+            )}
           />
       </div>
     </div>
      <div
         className={cn(
-          "flex xl:hidden bg-mist-900/70 backdrop-blur-2xl fixed z-10",
+          "flex xl:hidden bg-mist-900 backdrop-blur-2xl fixed z-100",
           isExpanded && "top-0 transition duration-500"
         )}
       >

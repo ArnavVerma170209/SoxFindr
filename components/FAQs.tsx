@@ -43,16 +43,7 @@ const FAQ = () => {
     <div className="flex justify-center items-center w-screen h-full">
 
       <div className="mx-10 lg:mx-0 xl:max-w-5xl lg:max-w-3xl w-full">
-        <div className="flex mt-48 mb-20 justify-center  h-auto w-full flex-col overflow-hidden">
-          <h1
-            className={cn(
-              "font-mono text-center h-24 xl:text-6xl  text-5xl tracking-tighter text-white drop-shadow-[0_0px_35px_#ce1fff)] uppercase ",
-              
-            )}
-          >
-            Frequently asked questions
-          </h1>     
-        </div>
+       
           <Accordion className="bg-transparent text-mist-100" >
             {questions.map((_ : any, i : any) => (
            <AccordionItem value={i} key={i}>

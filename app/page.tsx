@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Section from "@/components/Societies/Section";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { getOrCreateUser } from "@/db/user";
+import { cn } from "@/lib/utils";
 
 export default async function Home() {
   const user = await getOrCreateUser()
@@ -27,6 +28,16 @@ export default async function Home() {
     </div>
    </div>
     <Section /> 
+     <div className="flex mt-48 mb-20 justify-center  h-auto w-full flex-col overflow-hidden">
+          <h1
+            className={cn(
+              "font-mono text-center h-24 xl:text-6xl  text-5xl tracking-tighter text-white drop-shadow-[0_0px_35px_#ce1fff)] uppercase ",
+              
+            )}
+          >
+            Frequently asked questions
+          </h1>     
+        </div>
     <FAQ />
 
        <div className="h-12 bg-mist-900 text-mist-100/20 flex justify-center items-center w-full">
