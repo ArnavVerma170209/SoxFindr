@@ -1,17 +1,16 @@
 import { getOrCreateUser } from "@/db/user";
-import { RedirectToSignIn, UserButton } from "@clerk/nextjs";
+import { RedirectToSignIn } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
-  const user = await auth()
+  const { userId } = await auth();
 
-  if (!user){
-    return RedirectToSignIn
+  if (!userId) {
+    return <RedirectToSignIn />;
   }
 
-  const CreateOrGetUser = await getOrCreateUser()
+  await getOrCreateUser();
 
-  return redirect("/dashboard")
-
+  return redirect("/dashboard");
 }
