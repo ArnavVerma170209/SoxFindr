@@ -11,7 +11,7 @@ import { Show } from "@clerk/nextjs";
 const navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className={cn("z-1000000 w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-20 fixed backdrop-blur-lg ", 
+    <div className={cn("z-100 w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-20 fixed backdrop-blur-lg ", 
       isExpanded && "bg-mist-900"
      )}>
 
