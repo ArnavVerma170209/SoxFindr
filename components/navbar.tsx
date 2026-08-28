@@ -33,11 +33,7 @@ const navbar = () => {
           <Button variant="ghost" className={"text-accent hover:bg-transparent text-[16px] hover:text-accent/80"} size="lg">
             Societies
           </Button>
-        </Link>   <Link href="/guide">
-          <Button variant="ghost" className={"text-accent hover:bg-transparent text-[16px] hover:text-accent/80"} size="lg">
-            Guide
-          </Button>
-        </Link>   <Link href="/faqs">
+        </Link>     <Link href="/faqs">
           <Button variant="ghost" className={"text-accent hover:bg-transparent text-[16px] hover:text-accent/80"} size="lg">
             FAQs
           </Button>
@@ -106,7 +102,6 @@ const navbar = () => {
           >
             <Link href={"/"}>Home</Link>
             <Link href={"/societies"}>Societies</Link>
-            <Link href={"/guide"}>Guide</Link>
             <Link href={"/faqs"}>FAQs</Link>
           </div>
         </div>

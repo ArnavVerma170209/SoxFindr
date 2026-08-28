@@ -5,6 +5,7 @@ import { JetBrains_Mono } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ClerkProvider, Show} from '@clerk/nextjs'
+import Navbar from "@/components/navbar";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -42,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <SmoothScroll/> 
         {children}
-    
+ 
         </ClerkProvider>
       
         </body>

@@ -1,13 +1,37 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import Navbar from './navbar'
 import { TextAnimate } from './ui/text-animate'
 import Countdown from './Countdown'
+import Lenis from 'lenis'
 
 const Hero = () => {
+  useEffect(() => {
+  const lenis = new Lenis();
+
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  lenis.on("scroll", ({ scroll }) => {
+    document.documentElement.style.setProperty(
+      "--scroll",
+      `${scroll}px`
+    );
+  });
+
+  return () => lenis.destroy();
+}, []);
   return (
-<div className="flex screen flex-col h-screen justify-between w-screen items-center">
-    <Navbar />
- 
+    
+<div className="flex screen flex-col h-screen justify-between bg-cover bg-no-repeat w-screen items-center"    
+  style={{
+  backgroundPosition: `center calc(100% + 100px + var(--scroll) * 0.1)`,
+}}>
+     <Navbar />
     <div className="flex   flex-col font-mono mt-40 justify-start items-center  tracking-tighter h-full xl:text-[120px] text-7xl font-extrabold text-mist-100 xl:max-w-5xl lg:max-w-3xl   w-full  ">
         <TextAnimate animation="slideUp"  by="word">
       SoxFindr
