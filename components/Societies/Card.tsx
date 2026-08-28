@@ -13,7 +13,7 @@ const Card = (soc: Society) => {
   const color = categoryColors[soc.category] ?? "#7562eb";
 
   return (
-    <div className="lg:h-full h-76  flex flex-col justify-between px-4 py-3 text-mist-100 w-full bg-mist-800 rounded-xl">
+    <div className="h-full  flex flex-col justify-between px-4 py-3 text-mist-100 w-full bg-mist-800 rounded-xl">
       <div className="flex h-full flex-col justify-between">
        <div>
 
