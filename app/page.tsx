@@ -7,8 +7,6 @@ import { getOrCreateUser } from "@/db/user";
 import { cn } from "@/lib/utils";
 
 export default async function Home() {
-  const user = await getOrCreateUser()
-  console.log(user)
   return (<>
 
 

@@ -9,6 +9,7 @@ import {
 export const roleEnum = pgEnum("role", [
   "STUDENT",
   "ADMIN",
+  "SUPER ADMIN"
 ]);
 
 export const statusEnum = pgEnum("status", [
@@ -27,7 +28,7 @@ export const users = pgTable("users", {
 });
 
 export const societies = pgTable("societies", {
- id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
   name: text("name").notNull(),
   category: text("category").notNull(),
   description: text("description").notNull(),
@@ -50,7 +51,7 @@ export const applications = pgTable("applications", {
     .notNull()
     .references(() => users.id),
 
-  societyId: text("society_id")
+  societyId: integer("society_id")
     .notNull()
     .references(() => societies.id),
 });

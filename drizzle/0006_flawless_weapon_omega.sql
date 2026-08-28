@@ -1,0 +1,1 @@
+ALTER TABLE "applications" ALTER COLUMN "society_id" SET DATA TYPE integer;

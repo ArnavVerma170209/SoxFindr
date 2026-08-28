@@ -1,8 +1,13 @@
-import React from 'react'
+import { getOrCreateUser } from '@/db/user'
+import { UserButton } from '@clerk/nextjs'
 
-const DashboardPage = () => {
+
+const DashboardPage = async () => {
+  const user = await getOrCreateUser()
   return (
-    <div className='text-accent'>DashboardPage</div>
+    <div className='text-accent'>
+       Hi  {user?.name} <UserButton />
+    </div>
   )
 }
 

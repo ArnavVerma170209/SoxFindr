@@ -6,7 +6,7 @@ import { HoverBorderGradient } from "./ui/hover-button-gradient"
 import { useState } from "react"
 import { MenuIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Show } from "@clerk/nextjs";
+import { Show, SignInButton } from "@clerk/nextjs";
 
 const navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -44,7 +44,8 @@ const navbar = () => {
       </div> <div className="flex gap-10">
         <Show when="signed-out">
       <Link href="/login">
-        <HoverBorderGradient
+         
+      <HoverBorderGradient
             containerClassName="rounded-full"
             as="button"
             className="bg-white hidden lg:block text-sm  font-bold hover:bg-mist-200 hover:text-mist-800 transition duration-1000 text-mist-950  space-x-2"
@@ -54,10 +55,10 @@ const navbar = () => {
               Register
             </span>
           </HoverBorderGradient>
-       
         </Link></Show>
         <Show when="signed-in">
           <Link href="/dashboard">
+         
           <HoverBorderGradient
             containerClassName="rounded-full"
             as="button"
