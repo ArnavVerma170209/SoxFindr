@@ -46,8 +46,7 @@ export const applications = pgTable("applications", {
   createdAt: timestamp("created_at")
     .defaultNow()
     .notNull(),
-
-  studentId: text("student_id")
+ studentId: text("student_id")
     .notNull()
     .references(() => users.id),
 
@@ -57,3 +56,4 @@ export const applications = pgTable("applications", {
 });
 
 export type Society = typeof societies.$inferSelect;
+ 
