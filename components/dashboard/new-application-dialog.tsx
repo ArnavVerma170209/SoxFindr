@@ -11,7 +11,7 @@ import {
 } from "../ui/dialog";
 
 import { Button } from "../ui/button";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { updateUserDetails } from "@/app/(actions)/actions/userDetails";
@@ -20,6 +20,7 @@ import { ApplicationForm, applicationFormSchema } from "@/lib/validations/applic
 import { societyData } from "@/db/seed";
 import { Textarea } from "../ui/textarea";
 import { createApplication } from "@/app/(actions)/actions/applicationForm";
+import { useEffect } from "react";
 
 const NewApplicaionDialog = () => {
   const form = useForm<ApplicationForm>({
@@ -27,8 +28,24 @@ const NewApplicaionDialog = () => {
     defaultValues: {
       whyYou: "",
       society: "",
+      department: "",
     },
+  }) ;
+
+const selectedSociety = societyData.find(
+  (society) => society.name === form.watch("society")
+);
+
+  const selectedSocietyName = useWatch({
+    control: form.control,
+    name: "society",
   });
+
+  useEffect(() => {
+    form.setValue("department", "");
+  }, [selectedSocietyName, form]);
+
+  const departments = selectedSociety?.departments ?? [];
 
   const onSubmit = async (data: any) => {
     await createApplication(data)
@@ -103,6 +120,39 @@ const NewApplicaionDialog = () => {
             {form.formState.errors.society && (
               <p className="text-sm text-red-400">
                 {form.formState.errors.society.message}
+              </p>
+            )}
+    <label className="text-sm font-medium">
+              Select Department
+            </label>
+             <Select
+        value={form.watch("department")?.toString()}
+        onValueChange={(value) =>
+            form.setValue("department", String(value), {
+            shouldValidate: true,
+            shouldDirty: true,
+            })
+        }
+            >
+  <SelectTrigger className="w-full">
+    <SelectValue placeholder="Select the department you want to apply for" />
+  </SelectTrigger>
+
+  <SelectContent>
+    {departments.map((department) => (
+      <SelectItem
+        key={department}
+        value={department}
+      >
+        {department}
+      </SelectItem>
+    ))}
+  </SelectContent>
+</Select>
+
+            {form.formState.errors.department && (
+              <p className="text-sm text-red-400">
+                {form.formState.errors.department.message}
               </p>
             )}
 

@@ -34,6 +34,16 @@ export const societies = pgTable("societies", {
   description: text("description").notNull(),
 });
 
+export const departments = pgTable("departments", {
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+
+  societyId: integer("society_id")
+    .notNull()
+    .references(() => societies.id),
+
+  name: text("name").notNull(),
+});
+
 export const applications = pgTable("applications", {
   id: text("id").primaryKey(),
 
@@ -46,14 +56,19 @@ export const applications = pgTable("applications", {
   createdAt: timestamp("created_at")
     .defaultNow()
     .notNull(),
- studentId: text("student_id")
+
+  studentId: text("student_id")
     .notNull()
     .references(() => users.id),
 
   societyId: integer("society_id")
     .notNull()
     .references(() => societies.id),
+
+  departmentId: integer("department_id")
+    .notNull()
+    .references(() => departments.id),
 });
 
 export type Society = typeof societies.$inferSelect;
- 
+export type Department = typeof departments.$inferSelect;
