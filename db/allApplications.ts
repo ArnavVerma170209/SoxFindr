@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { applications, societies, departments } from "@/db/schema";
+import { applications, societies, departments, users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
 export const getAllApplications = async () => {
@@ -15,6 +15,12 @@ export const getAllApplications = async () => {
 
       departmentId: applications.departmentId,
       departmentName: departments.name,
+
+      studentId: applications.studentId,
+      studentName: users.name,
+      studentEmail: users.email,
+      studentBranch: users.branch,
+      studentYear: users.year,
     })
     .from(applications)
     .leftJoin(
@@ -25,6 +31,10 @@ export const getAllApplications = async () => {
       departments,
       eq(applications.departmentId, departments.id)
     )
+    .leftJoin(
+      users,
+      eq(applications.studentId, users.id)
+    );
 
   return userApplications;
 };

@@ -166,6 +166,24 @@ const AdminBoards = async () => {
                     </DialogTitle>
                   </DialogHeader>
 
+ <div className="flex flex-col gap-2">
+                    <label className="text-sm font-medium">
+                       Name
+                    </label>
+
+                    <div className="bg-mist-950 rounded-md w-full p-2 border border-mist-800">
+                      {app.studentName ?? 'Student Name Not Found'}
+                    </div>
+                  </div>
+                   <div className="flex flex-col gap-2">
+                    <label className="text-sm font-medium">
+                      Year and branch
+                    </label>
+
+                    <div className="bg-mist-950 rounded-md w-full p-2 border border-mist-800">
+                      {app.studentYear} - {app.studentBranch}
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-medium">
                       Society Name
