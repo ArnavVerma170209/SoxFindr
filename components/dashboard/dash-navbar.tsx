@@ -35,6 +35,19 @@ const DashNavbar = async () => {
       </Link>
       <div className="flex gap-4">
         {user.role === "SUPER ADMIN" ? <>
+                    
+                        <Button
+                        className="
+                          flex h-8 gap-x-1 justify-center items-center
+                          p-2 bg-mist-100 text-mist-950 rounded-sm text-sm
+                          hover:bg-mist-800 hover:text-mist-100
+                          transition duration-100
+                        "
+                      >
+                        <span className="font-medium text-[13px] font-mont">
+                          Review Users 
+                        </span>
+                      </Button> 
         </> :
         
         <>

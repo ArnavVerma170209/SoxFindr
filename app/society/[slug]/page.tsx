@@ -2,6 +2,8 @@ import { societyData } from "@/db/seed";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CalendarDays, Users } from "lucide-react";
 import NewApplicationDialog from "@/components/dashboard/new-application-dialog";
+import { getOrCreateUser } from "@/db/user";
+import UpdateBranchDialog from "@/components/dashboard/update-branch-dialog";
 
 type Props = {
   params: Promise<{
@@ -11,7 +13,18 @@ type Props = {
 
 export default async function SocietyPage({ params }: Props) {
   const { slug } = await params;
+  const user = await getOrCreateUser();
+  var isSignedIn = false
+  if (user){
+    isSignedIn = true
+  }
+  var isBranchUpdated = false
 
+  if (user?.branch !== null){
+    isBranchUpdated = true
+  }
+
+  
   const societyName = slug.replace(/-/g, ' ');
   var society;
 
@@ -57,7 +70,11 @@ export default async function SocietyPage({ params }: Props) {
 
           {/* Apply button */}
           <div className="shrink-0">
-            <NewApplicationDialog/>
+          {isSignedIn === true ?  isBranchUpdated === true ? <NewApplicationDialog/> : <UpdateBranchDialog /> : <Link href="/sign-in" className="inline-flex items-center gap-2 rounded-lg bg-mist-800 px-4 py-2 text-sm font-medium text-mist-100 transition hover:bg-mist-700">
+              Sign in to apply
+            </Link>}
+            {/* {isBranchUpdated === true ? <NewApplicationDialog/> : <UpdateBranchDialog />}
+            <NewApplicationDialog/> */}
           </div>
 
         </div>

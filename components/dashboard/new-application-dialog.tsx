@@ -49,7 +49,6 @@ const selectedSociety = societyData.find(
 
   const onSubmit = async (data: any) => {
     await createApplication(data)
-    // console.log(data)
     window.location.reload();
   };
 

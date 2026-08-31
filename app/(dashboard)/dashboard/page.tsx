@@ -1,3 +1,4 @@
+import AdminBoards from '@/components/dashboard/admin-boards'
 import DashNavbar from '@/components/dashboard/dash-navbar'
 import UserBoards from '@/components/dashboard/user-boards'
 import { getOrCreateUser } from '@/db/user'
@@ -11,7 +12,11 @@ const DashboardPage = async () => {
     <div className='text-accent '>
       <DashNavbar />
       <div className="h-16" />
-      {user?.role === "SUPER ADMIN" ? "super sigma" : 
+      {user?.role === "SUPER ADMIN" ? <>
+        <div>
+          <AdminBoards />
+        </div>
+      </>: 
       <>
         <div>
           
