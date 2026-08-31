@@ -110,16 +110,17 @@ const AdminBoards = async () => {
 
         <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
 
-        <div className="font-mono px-10 text-[14px] text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
+        <div className="font-mono lg:px-0 px-10 text-[14px] text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
           View Applications
         </div>
+    <div className="lg:mx-0 mx-10 lg:w-full justify-center items-center  flex flex-col gap-2 ">
 
         {/* Applications */}
         {applications.map((app) => {
           return (
             <div
               key={app.id}
-              className="xl:max-w-5xl lg:mx-0 h-32 justify-between  mx-10 lg:max-w-3xl  rounded-lg border border-mist-800 bg-mist-900/40 p-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+              className="xl:max-w-5xl lg:mx-0 bg-mist-900/40 lg:h-16 w-full h-32 justify-between  lg:max-w-3xl  rounded-lg border  border-mist-800  p-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
             >
 
               <div className="flex gap-2 justify-between lg:justify-normal items-center">
@@ -205,6 +206,7 @@ const AdminBoards = async () => {
             </div>
           )
         })}
+    </div>
 
       </div>
     </>
