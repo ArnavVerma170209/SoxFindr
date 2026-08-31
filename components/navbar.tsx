@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
@@ -7,8 +7,9 @@ import { useState } from "react"
 import { MenuIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Show, SignInButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
-const navbar = () => {
+const navbar =  () => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div className={cn("z-100 w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-20 fixed backdrop-blur-lg ", 
@@ -109,7 +110,12 @@ const navbar = () => {
             <Link href={"/"}>Home</Link>
             <Link href={"/societies"}>Societies</Link>
             <Link href={"/faqs"}>FAQs</Link>
+            <Show when="signed-in">
+              <Link href={"/dashboard"}>Dashboard</Link>
+            </Show>
+            <Show when="signed-out">
             <Link href={"/login"}>Register</Link>
+            </Show>
           </div>
         </div>
     </div>
