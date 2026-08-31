@@ -2,13 +2,17 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { getAllUsers } from '@/db/allUsers'
+import { getOrCreateUser } from '@/db/user'
 import { ArrowLeftIcon } from 'lucide-react'
+import { redirect } from 'next/dist/client/components/navigation'
 import Link from 'next/link'
 
 
 const ReviewUsers = async () => {
   const allUsers = await getAllUsers();
-
+  const user =await getOrCreateUser()
+  if (user === null) return redirect('/')
+  if (user.role !== "SUPER ADMIN") return redirect('/dashboard')
   return (
     <div className="flex flex-col gap-y-2 items-center w-screen mt-8 h-full">
 
@@ -188,7 +192,7 @@ const ReviewUsers = async () => {
                     border border-mist-800
                     text-sm
                   ">
-                    Arnav Verma
+                    {user.name ?? 'Unknown Name'}
                   </div>
                 </div>
 
