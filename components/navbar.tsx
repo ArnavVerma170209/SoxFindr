@@ -102,13 +102,14 @@ const navbar = () => {
           </div>
           <div
             className={cn(
-              "transition duration-500 px-7 justify-center bg-mist-900/95 backdrop-blur-3xl  gap-y-4 text-7xl h-full flex flex-col",
-              isExpanded && "flex flex-col"
+              "transition font-mono duration-500 px-7 justify-center bg-mist-900/95 backdrop-blur-3xl  gap-y-4 text-7xl h-full flex flex-col",
+              isExpanded && "flex font-mono flex-col"
             )}
           >
             <Link href={"/"}>Home</Link>
             <Link href={"/societies"}>Societies</Link>
             <Link href={"/faqs"}>FAQs</Link>
+            <Link href={"/faqs"}>Register</Link>
           </div>
         </div>
     </div>

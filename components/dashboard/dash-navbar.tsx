@@ -35,7 +35,7 @@ const DashNavbar = async () => {
       </Link>
       <div className="flex gap-4">
         {user.role === "SUPER ADMIN" ? <>
-                    
+                    <Link href="/dashboard/review-users">
                         <Button
                         className="
                           flex h-8 gap-x-1 justify-center items-center
@@ -48,6 +48,8 @@ const DashNavbar = async () => {
                           Review Users 
                         </span>
                       </Button> 
+                    </Link>
+
         </> :
         
         <>

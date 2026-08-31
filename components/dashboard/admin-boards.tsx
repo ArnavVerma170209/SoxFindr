@@ -11,6 +11,8 @@ import {
 import { Textarea } from '../ui/textarea'
 import { getAllApplications } from '@/db/allApplications'
 import { Button } from '../ui/button'
+import { updateApplicationStatus } from '@/db/changeApplicationStatus'
+import ApplicationActions from './application-actions'
 
 const AdminBoards = async () => {
   const user = await getOrCreateUser()
@@ -52,7 +54,6 @@ const AdminBoards = async () => {
     <>
       <div className="flex flex-col gap-y-2 items-center w-screen mt-8 h-full">
 
-        {/* Welcome */}
         <div className="font-mono text-[14px] text-center lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
           Hi{' '}
           <span className="text-[20px]">
@@ -63,10 +64,8 @@ const AdminBoards = async () => {
 
         <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
 
-        {/* Stats */}
         <div className="xl:max-w-5xl gap-y-4 flex px-10 lg:px-0 items-center flex-col xl:flex-row justify-between gap-x-4 h-full w-full lg:max-w-3xl">
 
-          {/* Total */}
           <div className="rounded-lg h-48 w-full flex flex-col justify-between bg-mist-900 border-mist-800 border-[1.5px]">
             <div className="px-4 py-3 font-mono">
               Total Applications
@@ -77,7 +76,6 @@ const AdminBoards = async () => {
             </div>
           </div>
 
-          {/* Pending */}
           <div className="rounded-lg text-yellow-500/70 h-48 w-full flex flex-col justify-between bg-yellow-950/20 border-yellow-900/20 border-[1.5px]">
             <div className="px-4 py-3 font-mono">
               Applications Pending
@@ -88,7 +86,6 @@ const AdminBoards = async () => {
             </div>
           </div>
 
-          {/* Rejected */}
           <div className="rounded-lg text-red-500/70 h-48 w-full flex flex-col justify-between bg-red-950/20 border-red-900/20 border-[1.5px]">
             <div className="px-4 py-3 font-mono">
               Applicatons Rejected
@@ -99,7 +96,6 @@ const AdminBoards = async () => {
             </div>
           </div>
 
-          {/* Accepted */}
           <div className="rounded-lg text-green-500/70 h-48 w-full flex flex-col justify-between bg-green-950/20 border-green-900/20 border-[1.5px]">
             <div className="px-4 py-3 font-mono">
               Applications accepted
@@ -114,7 +110,6 @@ const AdminBoards = async () => {
 
         <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
 
-        {/* Applications heading */}
         <div className="font-mono text-[14px] text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
           View Applications
         </div>
@@ -127,7 +122,6 @@ const AdminBoards = async () => {
               className="xl:max-w-5xl lg:max-w-3xl w-full rounded-lg border border-mist-800 bg-mist-900/40 p-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
             >
 
-              {/* Left: Society + Status */}
               <div className="flex gap-2 items-center">
 
                 <div className="text-base font-mont font-medium text-white">
@@ -146,33 +140,8 @@ const AdminBoards = async () => {
               </div>
                     <div className="flex gap-2 items-center">
 
-              <Button
-                className="
-                  flex h-8 gap-x-1 justify-center items-center
-                  p-2 bg-red-500 text-red-100 rounded-sm text-sm
-                  hover:bg-mist-800 hover:text-mist-100
-                  transition duration-100 
-                "
-              >
-                <span className="font-medium text-[13px] font-mont">
-                  Reject
-                </span>
-              </Button>
-              
-                <Button
-                className="
-                  flex h-8 gap-x-1 justify-center items-center
-                  p-2 bg-green-500 text-green-100 rounded-sm text-sm
-                  hover:bg-mist-800 hover:text-mist-100
-                  transition duration-100
-                "
-              >
-                <span className="font-medium text-[13px] font-mont">
-                  Accept 
-                </span>
-              </Button>
+              <ApplicationActions applicationId={app.id} />
 
-              {/* View Application */}
               <Dialog>
 
                 <DialogTrigger
@@ -196,7 +165,6 @@ const AdminBoards = async () => {
                     </DialogTitle>
                   </DialogHeader>
 
-                  {/* Society */}
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-medium">
                       Society Name
@@ -207,7 +175,6 @@ const AdminBoards = async () => {
                     </div>
                   </div>
 
-                  {/* Department */}
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-medium">
                       Department Name
@@ -218,7 +185,6 @@ const AdminBoards = async () => {
                     </div>
                   </div>
 
-                  {/* Why You */}
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-medium">
                       Why You
