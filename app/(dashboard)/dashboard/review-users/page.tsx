@@ -24,7 +24,7 @@ const ReviewUsers = async () => {
 
       <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
 
-      {/* Search / filters */}
+    
       <div className="xl:max-w-5xl lg:max-w-3xl w-full flex gap-2">
 
         <input
@@ -87,6 +87,11 @@ const ReviewUsers = async () => {
                 bg-mist-800 text-mist-200
               ">
                 {user.year ?? 'Unknown Year'}
+              </span>  <span className="
+                px-2 py-1 rounded-md
+                bg-mist-800 text-mist-200
+              ">
+                {user.role ?? 'Unknown Role'}
               </span>
             </div>
 
@@ -102,6 +107,11 @@ const ReviewUsers = async () => {
           hover:bg-green-800 hover:text-green-200
           transition duration-100
         "
+        onClick={async () => {
+          'use server';
+          const { updateUserRole } = await import('@/db/updateUserRole');
+          await updateUserRole(user.id, 'ADMIN');
+        }}
       >
         <span className="font-medium text-[13px] font-mont">
           Make Admin
@@ -117,6 +127,11 @@ const ReviewUsers = async () => {
           hover:bg-yellow-800 hover:text-yellow-200
           transition duration-100
         "
+        onClick={async () => {
+          'use server';
+          const { updateUserRole } = await import('@/db/updateUserRole');
+          await updateUserRole(user.id, 'STUDENT');
+        }}
       >
         <span className="font-medium text-[13px] font-mont">
           Make User
@@ -209,7 +224,7 @@ const ReviewUsers = async () => {
                     border border-mist-800
                     text-sm
                   ">
-                    {user.branch ?? 'Unknown Branch'}
+                    {user.branch ?? 'Branch Not Updated'}
                   </div>
                 </div>
 
@@ -227,7 +242,7 @@ const ReviewUsers = async () => {
                     border border-mist-800
                     text-sm
                   ">
-                    {user.year ?? 'Unknown Year'}
+                    {user.year ?? 'Year Not Updated'}
                   </div>
                 </div>
 
@@ -245,6 +260,7 @@ const ReviewUsers = async () => {
           {/* Actions */}
 
 
+      
       </div>
 
     )

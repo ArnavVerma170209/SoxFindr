@@ -110,7 +110,7 @@ const AdminBoards = async () => {
 
         <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
 
-        <div className="font-mono text-[14px] text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
+        <div className="font-mono px-10 text-[14px] text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
           View Applications
         </div>
 
@@ -119,12 +119,12 @@ const AdminBoards = async () => {
           return (
             <div
               key={app.id}
-              className="xl:max-w-5xl lg:max-w-3xl w-full rounded-lg border border-mist-800 bg-mist-900/40 p-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+              className="xl:max-w-5xl lg:mx-0 h-32 justify-between  mx-10 lg:max-w-3xl  rounded-lg border border-mist-800 bg-mist-900/40 p-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
             >
 
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-2 justify-between lg:justify-normal items-center">
 
-                <div className="text-base font-mont font-medium text-white">
+                <div className="text-xl lg:text-base font-mont font-medium text-white">
                   {app.societyName ?? 'Unknown Society'}
                 </div>
 
@@ -152,7 +152,7 @@ const AdminBoards = async () => {
                     transition duration-100 text-mist-950
                   "
                 >
-                  <span className="font-medium text-[13px] font-mont">
+                  <span className="font-medium text-[10px] lg:text-[13px] font-mont">
                     View Application
                   </span>
                 </DialogTrigger>

@@ -115,18 +115,16 @@ const UserBoards = async () => {
         </div>
 
         <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
-
-        {/* Applications heading */}
-        <div className="font-mono text-[14px] text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
+        <div className="font-mono mb-4 lg:mb-0 lg:px-0 px-10 mx-10  text-[14px]  text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
           Your Applications
         </div>
-
+    <div className="lg:flex lg:justify-center flex-col lg:items-center mx-10 lg:w-full">
         {/* Applications */}
         {applications.map((app) => {
           return (
             <div
               key={app.id}
-              className="xl:max-w-5xl lg:max-w-3xl w-full rounded-lg border border-mist-800 bg-mist-900/40 p-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+              className="xl:max-w-5xl w-full lg:mb-2 mb-4 lg:max-w-3xl lg:mx-0 rounded-lg border border-mist-800 bg-mist-900/40 p-2  flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
             >
 
               {/* Left: Society + Status */}
@@ -156,6 +154,7 @@ const UserBoards = async () => {
                     p-2 bg-mist-100 rounded-sm text-sm
                     hover:bg-mist-800 hover:text-mist-100
                     transition duration-100 text-mist-950
+                    
                   "
                 >
                   <span className="font-medium text-[13px] font-mont">
@@ -213,6 +212,7 @@ const UserBoards = async () => {
             </div>
           )
         })}
+        </div>
 
       </div>
     </>

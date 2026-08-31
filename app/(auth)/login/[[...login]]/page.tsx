@@ -10,6 +10,7 @@ export default function SignInPage() {
           },
         }}
         signUpForceRedirectUrl="/user"
+        forceRedirectUrl="/user"
         afterSignOutUrl={'/'}
       />
     </div>

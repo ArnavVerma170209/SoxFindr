@@ -12,7 +12,7 @@ const DashboardPage = async () => {
     <div className='text-accent '>
       <DashNavbar />
       <div className="h-16" />
-      {user?.role === "SUPER ADMIN" ? <>
+      {user?.role === "SUPER ADMIN" || user?.role === "ADMIN" ? <>
         <div>
           <AdminBoards />
         </div>
@@ -24,6 +24,8 @@ const DashboardPage = async () => {
         </div>
       </>
       }
+      
+
       </div>
   )
 }
