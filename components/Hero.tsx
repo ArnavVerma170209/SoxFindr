@@ -9,7 +9,7 @@ const Hero = () => {
     
 <div className="flex screen flex-col h-screen justify-between bg-cover bg-no-repeat w-screen items-center"    
   style={{
-  backgroundPosition: `center calc(100% + 100px + var(--scroll) * 0.1)`,
+  backgroundPosition: `center calc(100% + 100px + var(--scroll, 0px) * 0.1)`,
 }}>
      <Navbar />
     <div className="flex tracking-tighter   flex-col font-mono mt-40 justify-start items-center  h-full xl:text-[120px] text-7xl font-extrabold text-mist-100 xl:max-w-5xl lg:max-w-3xl   w-full  ">
