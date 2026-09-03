@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Compass, Sparkles, Users } from "lucide-react";
+import Link from "next/link";
 
 const steps = [
   {
@@ -100,7 +101,9 @@ export default function HomeSections() {
               Don&apos;t wait for the perfect society. Find the right starting point.
             </h2>
           </div>
+          <Link href="/societies" >
           <ArrowUpRight className="h-12 w-12 shrink-0 text-[#4285F4] transition-transform duration-300 hover:rotate-45" />
+          </Link>
         </motion.div>
       </div>
     </section>
