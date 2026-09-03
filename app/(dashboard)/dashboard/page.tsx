@@ -9,9 +9,9 @@ const DashboardPage = async () => {
   const user = await getOrCreateUser()
   if (user === null) return redirect('/')
   return (
-    <div className='text-accent '>
+    <div className='min-h-screen bg-mist-950 text-mist-100'>
       <DashNavbar />
-      <div className="h-16" />
+      <div className="h-20" />
       {user?.role === "SUPER ADMIN" || user?.role === "ADMIN" ? <>
         <div>
           <AdminBoards />

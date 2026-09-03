@@ -52,85 +52,85 @@ const UserBoards = async () => {
 
   return (
     <>
-      <div className="flex flex-col gap-y-2 items-center w-screen mt-8 h-full">
+      <div className="flex flex-col gap-y-2 items-center w-screen px-5 sm:px-8 mt-8 h-full">
 
         {/* Welcome */}
-        <div className="font-mono text-[14px] text-center lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
+        <div className="w-full max-w-6xl rounded-2xl border border-mist-800 bg-mist-900/60 px-6 py-6 font-mont text-sm text-mist-400">
           Hi{' '}
-          <span className="text-[20px]">
+          <span className="text-xl font-bold text-mist-100">
             {user.name}
           </span>
           , welcome to your dashboard.
         </div>
 
-        <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
+        <Separator className="my-5 w-full max-w-6xl bg-mist-800" />
 
         {/* Stats */}
-        <div className="xl:max-w-5xl gap-y-4 flex px-10 lg:px-0 items-center flex-col xl:flex-row justify-between gap-x-4 h-full w-full lg:max-w-3xl">
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
           {/* Total */}
-          <div className="rounded-lg h-48 w-full flex flex-col justify-between bg-mist-900 border-mist-800 border-[1.5px]">
-            <div className="px-4 py-3 font-mono">
+          <div className="rounded-2xl h-40 w-full flex flex-col justify-between bg-mist-900 border-mist-800 border p-5 shadow-lg shadow-black/10">
+            <div className="font-mont text-xs font-semibold uppercase tracking-wider text-mist-400">
               Total Applications
             </div>
 
-            <div className="px-4 py-3 font-bold font-mont text-7xl">
+            <div className="font-mont text-6xl font-bold text-mist-100">
               {applications.length}
             </div>
           </div>
 
           {/* Pending */}
-          <div className="rounded-lg text-yellow-500/70 h-48 w-full flex flex-col justify-between bg-yellow-950/20 border-yellow-900/20 border-[1.5px]">
-            <div className="px-4 py-3 font-mono">
+          <div className="rounded-2xl text-yellow-400 h-40 w-full flex flex-col justify-between bg-yellow-500/10 border-yellow-500/30 border p-5">
+            <div className="font-mont text-xs font-semibold uppercase tracking-wider text-yellow-300/70">
               Applications Pending
             </div>
 
-            <div className="px-4 py-3 font-bold font-mont text-7xl">
+            <div className="font-mont text-6xl font-bold">
               {pendingCount}
             </div>
           </div>
 
           {/* Rejected */}
-          <div className="rounded-lg text-red-500/70 h-48 w-full flex flex-col justify-between bg-red-950/20 border-red-900/20 border-[1.5px]">
-            <div className="px-4 py-3 font-mono">
+          <div className="rounded-2xl text-red-400 h-40 w-full flex flex-col justify-between bg-red-500/10 border-red-500/30 border p-5">
+            <div className="font-mont text-xs font-semibold uppercase tracking-wider text-red-300/70">
               Applicatons Rejected
             </div>
 
-            <div className="px-4 py-3 font-bold font-mont text-7xl">
+            <div className="font-mont text-6xl font-bold">
               {rejectedCount}
             </div>
           </div>
 
           {/* Accepted */}
-          <div className="rounded-lg text-green-500/70 h-48 w-full flex flex-col justify-between bg-green-950/20 border-green-900/20 border-[1.5px]">
-            <div className="px-4 py-3 font-mono">
+          <div className="rounded-2xl text-green-400 h-40 w-full flex flex-col justify-between bg-green-500/10 border-green-500/30 border p-5">
+            <div className="font-mont text-xs font-semibold uppercase tracking-wider text-green-300/70">
               Applications accepted
             </div>
 
-            <div className="px-4 py-3 font-bold font-mont text-7xl">
+            <div className="font-mont text-6xl font-bold">
               {acceptedCount}
             </div>
           </div>
 
         </div>
 
-        <Separator className="my-4 xl:max-w-5xl lg:max-w-3xl text-mist-800" />
-        <div className="font-mono mb-4 lg:mb-0 lg:px-0 px-10 mx-10  text-[14px]  text-left lg:text-left w-full xl:max-w-5xl lg:max-w-3xl">
+        <Separator className="my-7 w-full max-w-6xl bg-mist-800" />
+        <div className="mb-4 w-full max-w-6xl font-mont text-xs font-semibold uppercase tracking-[0.18em] text-mist-400">
           Your Applications
         </div>
-    <div className="lg:flex lg:justify-center flex-col lg:items-center mx-10 lg:w-full">
+    <div className="flex w-full max-w-6xl flex-col gap-3">
         {/* Applications */}
         {applications.map((app) => {
           return (
             <div
               key={app.id}
-              className="xl:max-w-5xl w-full lg:mb-2 mb-4 lg:max-w-3xl lg:mx-0 rounded-lg border border-mist-800 bg-mist-900/40 p-2  flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+              className="w-full rounded-2xl border border-mist-800 bg-mist-900/60 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 transition-colors hover:border-mist-600"
             >
 
               {/* Left: Society + Status */}
               <div className="flex gap-2 items-center">
 
-                <div className="text-base font-mont font-medium text-white">
+                <div className="text-base font-mont font-semibold text-mist-100">
                   {app.societyName ?? 'Unknown Society'}
                 </div>
 

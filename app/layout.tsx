@@ -5,10 +5,18 @@ import { JetBrains_Mono } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ClerkProvider, Show} from '@clerk/nextjs'
-import Navbar from "@/components/navbar";
+import {Bebas_Neue} from "next/font/google";
+
+
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas-neue",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const jetBrainsMono = JetBrains_Mono({
@@ -36,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       suppressHydrationWarning
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${bebasNeue.variable} ${geistMono.variable} ${jetBrainsMono.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col bg-mist-950 font-sans">
         <ClerkProvider>

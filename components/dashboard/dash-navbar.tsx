@@ -14,33 +14,32 @@ const DashNavbar = async () => {
   if(!user){
     return redirect('/')
   }
-  var isBranchUpdated = false
+  let isBranchUpdated = false
 
   if (user?.branch !== null){
     isBranchUpdated = true
   }
   return (
-      <div className={cn("z-10 w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-16 fixed backdrop-blur-lg "     )}>
+      <div className={cn("z-10 w-screen font-mont flex lg:justify-center border-b border-mist-800/80 bg-mist-950/90 h-16 fixed backdrop-blur-xl shadow-lg shadow-black/10" )}>
 
-    <div className="flex xl:gap-52   xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-16  font-bold text-2xl items-center justify-between   px-10 lg:px-0 ">
-     <Link href="/" className="h-full flex justify-center items-center border-x border-x-mist-800/50 w-20"> <div>
+    <div className="flex xl:gap-52 xl:max-w-6xl lg:max-w-4xl lg:gap-28 gap-4 w-full h-16 font-bold text-2xl items-center justify-between px-5 lg:px-0">
+     <Link href="/" aria-label="SoxFindr home" className="flex justify-center items-center">
         
         <Image
           src="/logo.svg"
           alt="SoxFindr Logo"
-          width={32}
-          height={32}
+          width={34}
+          height={34}
         />
-      </div>
       </Link>
-      <div className="flex gap-4">
+      <div className="flex items-center gap-3">
         {user.role === "SUPER ADMIN" ? <>
                     <Link href="/dashboard/review-users">
                         <Button
                         className="
                           flex h-8 gap-x-1 justify-center items-center
-                          p-2 bg-mist-100 text-mist-950 rounded-sm text-sm
-                          hover:bg-mist-800 hover:text-mist-100
+                          p-2 px-3 bg-mist-100 text-mist-950 rounded-lg text-sm
+                          hover:bg-accent hover:text-white
                           transition duration-100
                         "
                       >
