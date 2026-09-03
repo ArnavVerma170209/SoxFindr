@@ -31,7 +31,7 @@ const steps = [
 export default function HomeSections() {
   return (
     <section className="overflow-hidden flex justify-center bg-mist-950  py-28 text-mist-100 lg:px-0 lg:py-40">
-      <div className="px-2 w-full lg:max-w-3xl xl:max-w-5xl">
+      <div className="lg:px-2 px-10 w-full lg:max-w-3xl xl:max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
