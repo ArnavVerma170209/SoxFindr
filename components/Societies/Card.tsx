@@ -39,7 +39,7 @@ const Card = (soc: SocietyCardProps) => {
           {soc.category}
         </p>
         <span className="font-mono text-xs text-mist-500">
-          {String(soc.id + 1).padStart(2, "0") }
+          {String(soc.id).padStart(2, "0") }
         </span>
       </div>
 
