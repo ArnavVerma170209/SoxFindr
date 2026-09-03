@@ -171,3 +171,97 @@ body::before {
 body, html{
   overflow-x: hidden;
 }
+
+.Toastify__toast-container {
+  z-index: 10000;
+  width: min(calc(100vw - 2rem), 24rem);
+}
+
+.soxfindr-toast {
+  --toast-accent: #34a853;
+  position: relative;
+  overflow: hidden;
+  min-height: 4.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 0.75rem;
+  background: rgb(20 20 20 / 0.94);
+  box-shadow:
+    0 1rem 2.5rem rgb(0 0 0 / 0.28),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+  color: rgb(245 245 245);
+  isolation: isolate;
+}
+
+.soxfindr-toast::before,
+.soxfindr-toast::after {
+  position: absolute;
+  z-index: -1;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+  content: "";
+  filter: blur(1.5rem);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.soxfindr-toast::before {
+  top: -3rem;
+  right: -2rem;
+  background: var(--toast-accent);
+}
+
+.soxfindr-toast::after {
+  bottom: -3.5rem;
+  left: -2rem;
+  background: var(--toast-accent);
+}
+
+.soxfindr-toast.Toastify__toast--error {
+  --toast-accent: #ea4335;
+}
+
+.soxfindr-toast.Toastify__toast--warning {
+  --toast-accent: #fbbc05;
+}
+
+.soxfindr-toast.Toastify__toast--info {
+  --toast-accent: #4285f4;
+}
+
+.soxfindr-toast .Toastify__toast-body {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0 0.35rem;
+  font-family: var(--font-geist-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.soxfindr-toast .Toastify__close-button {
+  z-index: 2;
+  color: rgb(255 255 255 / 0.65);
+}
+
+.soxfindr-toast .Toastify__progress-bar {
+  height: 0.2rem;
+  background: var(--toast-accent);
+}
+
+@media (prefers-color-scheme: light) {
+  .soxfindr-toast {
+    border-color: rgb(0 0 0 / 0.1);
+    background: rgb(255 255 255 / 0.96);
+    box-shadow:
+      0 1rem 2.5rem rgb(0 0 0 / 0.14),
+      inset 0 1px 0 rgb(255 255 255 / 0.9);
+    color: rgb(24 24 27);
+  }
+
+  .soxfindr-toast .Toastify__close-button {
+    color: rgb(24 24 27 / 0.55);
+  }
+}

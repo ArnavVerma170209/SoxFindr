@@ -39,7 +39,7 @@ const DashNavbar = async () => {
                         className="
                           flex h-8 gap-x-1 justify-center items-center
                           p-2 px-3 bg-mist-100 text-mist-950 rounded-lg text-sm
-                          hover:bg-accent hover:text-white
+                          hover:text-mist-100 hover:bg-mist-900
                           transition duration-100
                         "
                       >

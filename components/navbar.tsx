@@ -6,11 +6,11 @@ import { HoverBorderGradient } from "./ui/hover-button-gradient"
 import { useState } from "react"
 import { MenuIcon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Show, SignInButton } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
+import { Show } from "@clerk/nextjs";
 
-const navbar =  () => {
+const Navbar =  () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const closeMenu = () => setIsExpanded(false);
   return (
     <div className={cn("z-100 w-screen  font-mont flex lg:justify-center border-b border-mist-900 bg-mist-950/80 h-20 fixed backdrop-blur-lg ", 
       isExpanded && "bg-mist-900"
@@ -107,14 +107,14 @@ const navbar =  () => {
               isExpanded && "flex font-mono flex-col"
             )}
           >
-            <Link href={"/"}>Home</Link>
-            <Link href={"/societies"}>Societies</Link>
-            <Link href={"/faqs"}>FAQs</Link>
+            <Link href={"/"} onClick={closeMenu}>Home</Link>
+            <Link href={"/societies"} onClick={closeMenu}>Societies</Link>
+            <Link href={"/faqs"} onClick={closeMenu}>FAQs</Link>
             <Show when="signed-in">
-              <Link href={"/dashboard"}>Dashboard</Link>
+              <Link href={"/dashboard"} onClick={closeMenu}>Dashboard</Link>
             </Show>
             <Show when="signed-out">
-            <Link href={"/login"}>Register</Link>
+            <Link href={"/login"} onClick={closeMenu}>Register</Link>
             </Show>
           </div>
         </div>
@@ -123,4 +123,4 @@ const navbar =  () => {
   )
 }
 
-export default navbar
+export default Navbar

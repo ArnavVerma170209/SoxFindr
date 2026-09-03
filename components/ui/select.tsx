@@ -85,9 +85,10 @@ function SelectContent({
       >
       <SelectPrimitive.Popup
   data-slot="select-content"
+  data-lenis-prevent-wheel
   data-align-trigger={alignItemWithTrigger}
   className={cn(
-    "relative isolate z-50 max-h-[160px] w-(--anchor-width) min-w-36 overflow-y-auto rounded-md bg-mist-950 text-accent shadow-md ring-1 ring-foreground/10",
+    "relative isolate z-50 max-h-[160px] w-(--anchor-width) min-w-36 overflow-y-auto overscroll-contain rounded-md bg-mist-950 text-accent shadow-md ring-1 ring-foreground/10",
     className
   )}
   {...props}

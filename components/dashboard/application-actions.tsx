@@ -2,6 +2,7 @@
 
 import { Button } from "../ui/button";
 import { updateApplicationStatus } from "@/db/changeApplicationStatus";
+import { toast } from "react-toastify";
 
 const ApplicationActions = ({
   applicationId,
@@ -11,7 +12,25 @@ const ApplicationActions = ({
   const handleStatusChange = async (
     status: "ACCEPTED" | "REJECTED" | "PENDING"
   ) => {
-    await updateApplicationStatus(applicationId, status);
+    try {
+      await updateApplicationStatus(applicationId, status);
+
+      const messages = {
+        ACCEPTED: "Application accepted successfully.",
+        REJECTED: "Application rejected.",
+        PENDING: "Application moved back to pending.",
+      };
+
+      const toastType = {
+        ACCEPTED: "success",
+        REJECTED: "error",
+        PENDING: "warning",
+      } as const;
+
+      toast[toastType[status]](messages[status]);
+    } catch {
+      toast.error("Application status could not be updated. Please try again.");
+    }
   };
 
   return (

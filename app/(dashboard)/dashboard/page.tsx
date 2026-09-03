@@ -2,7 +2,6 @@ import AdminBoards from '@/components/dashboard/admin-boards'
 import DashNavbar from '@/components/dashboard/dash-navbar'
 import UserBoards from '@/components/dashboard/user-boards'
 import { getOrCreateUser } from '@/db/user'
-import { getUserApplications } from '@/db/userApplications'
 import { redirect } from 'next/navigation'
 
 const DashboardPage = async () => {

@@ -21,6 +21,7 @@ import { societyData } from "@/db/seed";
 import { Textarea } from "../ui/textarea";
 import { createApplication } from "@/app/(actions)/actions/applicationForm";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const NewApplicaionDialog = () => {
   const form = useForm<ApplicationForm>({
@@ -47,9 +48,20 @@ const selectedSociety = societyData.find(
 
   const departments = selectedSociety?.departments ?? [];
 
-  const onSubmit = async (data: any) => {
-    await createApplication(data)
-    window.location.reload();
+  const onSubmit = async (data: ApplicationForm) => {
+    try {
+      await createApplication(data);
+      window.sessionStorage.setItem(
+        "soxfindr-toast",
+        JSON.stringify({
+          type: "success",
+          message: "Application submitted successfully.",
+        })
+      );
+      window.location.reload();
+    } catch {
+      toast.error("Application could not be submitted. Please try again.");
+    }
   };
 
   return (

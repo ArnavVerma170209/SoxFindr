@@ -4,8 +4,10 @@ import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
+import ToastProvider from "@/components/ToastProvider";
 import { ClerkProvider, Show} from '@clerk/nextjs'
 import {Bebas_Neue} from "next/font/google";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const montserrat = Montserrat({
@@ -48,8 +50,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col bg-mist-950 font-sans">
         <ClerkProvider>
-
-        <SmoothScroll/> 
+        <ToastProvider />
+        <SmoothScroll />
         {children}
  
         </ClerkProvider>

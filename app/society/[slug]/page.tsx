@@ -1,8 +1,9 @@
 import { societyData } from "@/db/seed";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, CalendarDays, Users } from "lucide-react";
+import { ArrowLeft, CalendarDays, Users } from "lucide-react";
 import NewApplicationDialog from "@/components/dashboard/new-application-dialog";
 import { getOrCreateUser } from "@/db/user";
+import { auth } from "@clerk/nextjs/server";
 import UpdateBranchDialog from "@/components/dashboard/update-branch-dialog";
 
 type Props = {
@@ -13,20 +14,13 @@ type Props = {
 
 export default async function SocietyPage({ params }: Props) {
   const { slug } = await params;
-  const user = await getOrCreateUser();
-  var isSignedIn = false
-  if (user){
-    isSignedIn = true
-  }
-  var isBranchUpdated = false
-
-  if (user?.branch !== null){
-    isBranchUpdated = true
-  }
+  const [{ userId }, user] = await Promise.all([auth(), getOrCreateUser()]);
+  const isSignedIn = Boolean(userId);
+  const isBranchUpdated = Boolean(user?.branch?.trim());
 
   
   const societyName = slug.replace(/-/g, ' ');
-  var society;
+  let society;
 
   for(let i=0; i<societyData.length; i++){
     if(societyData[i].name.toLowerCase() === societyName){
@@ -83,7 +77,7 @@ export default async function SocietyPage({ params }: Props) {
 
           {/* Apply button */}
           <div className="shrink-0">
-          {isSignedIn === true ?  isBranchUpdated === true ? <NewApplicationDialog/> : <UpdateBranchDialog /> : <Link href="/sign-in" className="inline-flex items-center gap-2 rounded-lg bg-mist-800 px-4 py-2 text-sm font-medium text-mist-100 transition hover:bg-mist-700">
+          {isSignedIn === true ?  isBranchUpdated === true ? <NewApplicationDialog/> : <UpdateBranchDialog /> : <Link href="/login" className="inline-flex items-center gap-2 rounded-lg bg-mist-800 px-4 py-2 text-sm font-medium text-mist-100 transition hover:bg-mist-700">
               Sign in to apply
             </Link>}
             {/* {isBranchUpdated === true ? <NewApplicationDialog/> : <UpdateBranchDialog />}
