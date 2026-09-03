@@ -29,8 +29,8 @@ const steps = [
 
 export default function HomeSections() {
   return (
-    <section className="overflow-hidden bg-mist-950 px-10 py-28 text-mist-100 lg:px-0 lg:py-40">
-      <div className="mx-auto w-full lg:max-w-3xl xl:max-w-5xl">
+    <section className="overflow-hidden flex justify-center bg-mist-950  py-28 text-mist-100 lg:px-0 lg:py-40">
+      <div className="px-2 w-full lg:max-w-3xl xl:max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function HomeSections() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7 }}
-          className="mt-24 flex flex-col justify-between gap-8 rounded-3xl border border-[#4285F4]/40 bg-gradient-to-br from-[#4285F4]/15 via-mist-900 to-[#34A853]/10 p-8 sm:p-12 lg:flex-row lg:items-center"
+          className="mt-24 flex flex-col justify-between gap-8 rounded-3xl border border-[#4285F4]/40 bg-gradient-to-br from-[#4285F4]/15 via-mist-900 to-[#4285F4]/10 p-8 sm:p-12 lg:flex-row lg:items-center"
         >
           <div>
             <p className="font-mont text-xs font-bold uppercase tracking-[0.22em] text-[#4285F4]">Built for NSUT</p>

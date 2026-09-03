@@ -7,6 +7,7 @@ export const societyData = [
   {
     id: 1,
     name: "Google developers Group",
+    image: "/societies/gdg.webp",
     category: "Technical",
     description:
       "Google Developer Groups NSUT brings together students passionate about software development, emerging technologies, and building real-world projects.",
@@ -22,6 +23,7 @@ export const societyData = [
   {
     id: 2,
     name: "Institute of Electrical and Electronics Engineers (IEEE)",
+    image: "/societies/IEEE.webp",
     category: "Technical",
     description:
       "A community for students interested in engineering, electronics, computing, innovation, and technological research.",
@@ -37,6 +39,7 @@ export const societyData = [
   {
     id: 3,
     name: "The Debugging Society",
+    image: "/societies/tds.webp",
     category: "Technical",
     description:
       "A technical society focused on programming, competitive coding, technology, and developing practical problem-solving skills.",
@@ -52,6 +55,7 @@ export const societyData = [
   {
     id: 4,
     name: "DevComm NSUT",
+    image: "/societies/devcomm.webp",
     category: "Technical",
     description:
       "A student community dedicated to computer science, software development, programming, and exploring new areas of computing.",
@@ -68,6 +72,7 @@ export const societyData = [
   {
     id: 5,
     name: "Moksha",
+    image: "/societies/moksha.webp",
     category: "Cultural",
     description:
       "NSUT's cultural society bringing together students interested in dance, music, theatre, and creative expression.",
@@ -83,6 +88,7 @@ export const societyData = [
   {
     id: 6,
     name: "Western Dance Society",
+    image: "/societies/wds.webp",
     category: "Cultural",
     description:
       "A dance community for students passionate about contemporary, hip-hop, and other western dance styles.",
@@ -98,6 +104,7 @@ export const societyData = [
   {
     id: 7,
     name: "Music Society",
+    image: "/societies/ms.webp",
     category: "Cultural",
     description:
       "A community for singers, instrumentalists, and music enthusiasts to collaborate and perform.",
@@ -113,6 +120,7 @@ export const societyData = [
   {
     id: 8,
     name: "Ashwanmedh",
+    image: "/societies/ashwa.webp",
     category: "Cultural",
     description:
       "A creative space for students interested in acting, theatre, stage performances, and storytelling.",
@@ -129,6 +137,7 @@ export const societyData = [
   {
     id: 9,
     name: "DebSoc",
+    image: "/societies/debsoc.webp",
     category: "Literary",
     description:
       "NSUT's debating community for students interested in public speaking, argumentation, critical thinking, and competitive debating.",
@@ -144,6 +153,7 @@ export const societyData = [
   {
     id: 10,
     name: "Quizzing Society",
+    image: "/societies/qs.webp",
     category: "Literary",
     description:
       "A community for trivia enthusiasts who enjoy competitive quizzing, general knowledge, and discovering interesting facts.",
@@ -159,6 +169,7 @@ export const societyData = [
   {
     id: 11,
     name: "Creative Writing Society",
+    image: "/societies/cws.webp",
     category: "Literary",
     description:
       "A platform for students interested in poetry, fiction, essays, storytelling, and other forms of creative writing.",
@@ -174,6 +185,7 @@ export const societyData = [
   {
     id: 12,
     name: "Literary Society",
+    image: "/societies/tls.webp",
     category: "Literary",
     description:
       "A community that encourages reading, writing, discussion, and exploration of literature and ideas.",
@@ -190,6 +202,7 @@ export const societyData = [
   {
     id: 13,
     name: "Enactus NSUT",
+    image: "/societies/enactus.webp",
     category: "Social",
     description:
       "A student community focused on entrepreneurship and creating sustainable solutions to social and economic challenges.",
@@ -205,6 +218,7 @@ export const societyData = [
   {
     id: 14,
     name: "NSS NSUT",
+    image: "/societies/nss.webp",
     category: "Social",
     description:
       "A student volunteer community working on social initiatives, community service, awareness campaigns, and civic engagement.",
@@ -220,6 +234,7 @@ export const societyData = [
   {
     id: 15,
     name: "Rotaract NSUT",
+    image: "/societies/rota.webp",
     category: "Social",
     description:
       "A youth-led community focused on volunteering, leadership, social impact, and community development.",
@@ -235,6 +250,7 @@ export const societyData = [
   {
     id: 16,
     name: "ECell NSUT",
+    image: "/societies/ecell.webp",
     category: "Social",
     description:
       "A community that promotes entrepreneurship, innovation, startup culture, and business-oriented initiatives among students.",

@@ -35,8 +35,21 @@ export default async function SocietyPage({ params }: Props) {
   }
   
   return <div>
-     <main className="min-h-screen bg-mist-950 text-mist-100">
-<div className="mx-auto max-w-6xl px-6 pt-8">
+     <main className="relative isolate min-h-screen overflow-hidden bg-mist-950 text-mist-100">
+        <section aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[560px] overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center grayscale brightness-[0.6]"
+            style={{ backgroundImage: `url("${society?.image}")` }}
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-mist-950/35 via-mist-950/60 to-mist-950"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-mist-950/45 via-transparent to-mist-950/45"
+          />
+        </section>
+
+<div className="relative z-10 mx-auto max-w-6xl px-6 pt-8">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm text-mist-400 transition hover:text-mist-100"
@@ -46,7 +59,7 @@ export default async function SocietyPage({ params }: Props) {
         </Link>
       </div>
 
-         <section className="mx-auto max-w-6xl px-6 pt-16 pb-12">
+         <section className="relative z-10 mx-auto max-w-6xl px-6 pt-16 pb-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
 
           <div className="max-w-3xl">
