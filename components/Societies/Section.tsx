@@ -13,7 +13,7 @@ const Section = () => {
           return (
         (
           <div key={society.id}>
-            <Link href={`/society/${slug}`}>
+            <Link href={`/society/${slug}`} aria-label={`Explore ${society.name}`}>
             <Card id={society.id} name={society.name} description={society.description} category={society.category} image={society.image} />
             </Link>
             </div>

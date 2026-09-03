@@ -17,7 +17,7 @@ const Navbar =  () => {
      )}>
 
     <div className="flex xl:gap-52   xl:max-w-5xl lg:max-w-3xl lg:gap-28 gap-4  w-full h-20  font-bold text-2xl items-center justify-between   px-10 lg:px-0 ">
-     <Link href="/" className="h-full flex justify-center items-center border-x border-x-mist-800/50 w-20"> <div>
+     <Link href="/" aria-label="SoxFindr home" className="h-full flex justify-center items-center border-x border-x-mist-800/50 w-20"> <div>
         
         <Image
           src="/logo.svg"
@@ -71,12 +71,14 @@ const Navbar =  () => {
             </span>
           </HoverBorderGradient>
           </Link></Show>
-         <MenuIcon
+         <button
+            type="button"
+            aria-label="Open navigation menu"
             onClick={() => setIsExpanded(true)}
-            className={cn("h-8 w-8 text-white block lg:hidden", 
-              isExpanded && "hidden"
-            )}
-          />
+            className={cn("block lg:hidden", isExpanded && "hidden")}
+          >
+            <MenuIcon className="h-8 w-8 text-white" aria-hidden="true" />
+          </button>
       </div>
     </div>
      <div
@@ -92,14 +94,18 @@ const Navbar =  () => {
           )}
         >
           <div className="h-20   w-full flex justify-between items-center p-7">
-            <Link href={"/"}>
-              <Image src={"/logo.svg"} height={40} width={40} alt="logo" />{" "}
+            <Link href={"/"} aria-label="SoxFindr home">
+              <Image src={"/logo.svg"} height={40} width={40} alt="" />{" "}
             </Link>
 
-            <X
+            <button
+              type="button"
+              aria-label="Close navigation menu"
               onClick={() => setIsExpanded(false)}
-              className="h-10 w-10 text-white fill"
-            />
+              className="h-10 w-10 text-white"
+            >
+              <X className="h-10 w-10" aria-hidden="true" />
+            </button>
           </div>
           <div
             className={cn(
