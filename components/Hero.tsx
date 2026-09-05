@@ -3,6 +3,9 @@ import React from 'react'
 import Navbar from './navbar'
 import { TextAnimate } from './ui/text-animate'
 import Countdown from './Countdown'
+import { HoverBorderGradient } from './ui/hover-button-gradient'
+import { Show } from '@clerk/nextjs'
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -30,7 +33,39 @@ const Hero = () => {
         By the students, For the students
       </p>
       </div>
+
+     
       <Countdown targetDate="2026-09-18T00:00:00" />
+       <div className="w-full flex justify-center lg:hidden items-center my-4">
+
+  <Show when="signed-out">
+      <Link href="/login">
+         
+      <HoverBorderGradient
+            containerClassName="rounded-full "
+            as="button"
+            className="bg-white  tracking-normal w-full lg:hidden text-sm  font-bold hover:bg-mist-200 hover:text-mist-800 transition duration-1000 text-mist-950  space-x-2"
+            clockwise={false}
+          >
+            <span>
+              Register
+            </span>
+          </HoverBorderGradient>
+        </Link></Show>
+        <Show when="signed-in">
+          <Link href="/dashboard">
+         
+          <HoverBorderGradient
+            containerClassName="rounded-full"
+            as="button"
+            className="bg-white block tracking-normal lg:hidden w-full font-mont text-sm  font-bold hover:bg-mist-200 hover:text-mist-800 transition duration-1000 text-mist-950 "
+            clockwise={false}
+          >
+            Dashboard
+          </HoverBorderGradient>
+          </Link></Show>
+      </div>
+
     </div>
   </div>  
   )
