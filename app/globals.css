@@ -127,7 +127,7 @@
 
 @theme inline {
   --font-mono: var(--font-jetbrains-mono);
-  /* add so that every element with this tag has tracking relaxed */}
+}
 
 @theme inline{
   --font-mont: var(--font-montserrat);

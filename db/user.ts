@@ -40,7 +40,6 @@ export async function getOrCreateUser() {
     .onConflictDoNothing({ target: users.id })
     .returning();
 
-  // If another concurrent call already inserted it, newUser will be undefined here.
   if (newUser) return newUser;
 
   const [finalUser] = await db
