@@ -5,6 +5,7 @@ import NewApplicationDialog from "@/components/dashboard/new-application-dialog"
 import { getOrCreateUser } from "@/db/user";
 import { auth } from "@clerk/nextjs/server";
 import UpdateBranchDialog from "@/components/dashboard/update-branch-dialog";
+import {redirect} from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -28,6 +29,10 @@ export default async function SocietyPage({ params }: Props) {
     }
   }
   
+  if(society === undefined) {
+    return redirect('/');
+  }
+    
   return <div>
      <main className="relative isolate min-h-screen overflow-hidden bg-mist-950 text-mist-100">
         <section aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[560px] overflow-hidden">
