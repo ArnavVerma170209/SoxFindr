@@ -10,8 +10,6 @@ import {
 } from '../ui/dialog'
 import { Textarea } from '../ui/textarea'
 import { getAllApplications } from '@/db/allApplications'
-import { Button } from '../ui/button'
-import { updateApplicationStatus } from '@/db/changeApplicationStatus'
 import ApplicationActions from './application-actions'
 
 const AdminBoards = async () => {
@@ -58,6 +56,9 @@ const AdminBoards = async () => {
           Hi{' '}
           <span className="text-[20px]">
             <span className="font-bold text-mist-100">{user.name}</span>
+            <span className="ml-2 mr-2 inline-flex rounded-md border border-mist-700 bg-mist-800 px-2 py-1 align-middle text-[10px] font-semibold uppercase tracking-wide text-mist-200">
+              {user.role}
+            </span>
           </span>
           , welcome to your dashboard.
         </div>
@@ -123,21 +124,34 @@ const AdminBoards = async () => {
               className="w-full rounded-2xl border border-mist-800 bg-mist-900/60 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 transition-colors hover:border-mist-600"
             >
 
-              <div className="flex gap-2 justify-between lg:justify-normal items-center">
+              <div className="flex flex-col gap-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="text-base font-mont font-semibold text-mist-100">
+                    {app.societyName ?? 'Unknown Society'}
+                  </div>
 
-                <div className="text-base font-mont font-semibold text-mist-100">
-                  {app.societyName ?? 'Unknown Society'}
+                  <span
+                    className={`w-fit text-xs px-2.5 py-1 rounded-full border font-medium ${
+                      statusStyles[app.status] ??
+                      'bg-gray-500/10 text-gray-300 border-gray-500/30'
+                    }`}
+                  >
+                    {app.status}
+                  </span>
                 </div>
 
-                <span
-                  className={`w-fit text-xs px-2.5 py-1 rounded-full border font-medium ${
-                    statusStyles[app.status] ??
-                    'bg-gray-500/10 text-gray-300 border-gray-500/30'
-                  }`}
-                >
-                  {app.status}
-                </span>
+                <div className="text-xs font-mono text-mist-400">
+                  {app.studentName ?? 'Unknown User'} · {app.departmentName ?? 'Unknown Department'}
+                </div>
 
+                <div className="flex flex-wrap gap-2 text-xs mt-1">
+                  <span className="px-2 py-1 rounded-md bg-mist-800 text-mist-200">
+                    {app.studentBranch ?? 'Unknown Branch'}
+                  </span>
+                  <span className="px-2 py-1 rounded-md bg-mist-800 text-mist-200">
+                    {app.studentYear ?? 'Unknown Year'}
+                  </span>
+                </div>
               </div>
                     <div className="flex gap-2 items-center">
 

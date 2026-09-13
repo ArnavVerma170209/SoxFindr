@@ -59,6 +59,9 @@ const UserBoards = async () => {
           <span className="text-xl font-bold text-mist-100">
             {user.name}
           </span>
+          <span className="ml-2 mr-2 inline-flex rounded-md border border-mist-700 bg-mist-800 px-2 py-1 align-middle text-[10px] font-semibold uppercase tracking-wide text-mist-200">
+            {user.role}
+          </span>
           , welcome to your dashboard.
         </div>
 
