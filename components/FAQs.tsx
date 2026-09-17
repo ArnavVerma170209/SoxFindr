@@ -33,7 +33,7 @@ const questions = [
   },
   {
     "question": "When does recruitment close?",
-    "answer": "18 sept."
+    "answer": "25 sept."
   }
 ]
 
