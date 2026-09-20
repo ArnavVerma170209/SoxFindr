@@ -41,6 +41,10 @@ const Navbar =  () => {
           <Button variant="ghost" className={"text-accent hover:bg-transparent text-[16px] hover:text-accent/80"} size="lg">
             FAQs
           </Button>
+        </Link>     <Link href="/socquiz">
+          <Button variant="ghost" className={"text-accent hover:bg-transparent text-[16px] hover:text-accent/80"} size="lg">
+            SocQuiz
+          </Button>
         </Link>
       </div> <div className="flex gap-10">
         <Show when="signed-out">
@@ -116,6 +120,7 @@ const Navbar =  () => {
             <Link href={"/"} onClick={closeMenu}>Home</Link>
             <Link href={"/societies"} onClick={closeMenu}>Societies</Link>
             <Link href={"/faqs"} onClick={closeMenu}>FAQs</Link>
+            <Link href={"/socquiz"} onClick={closeMenu}>SocQuiz</Link>
             <Show when="signed-in">
               <Link href={"/dashboard"} onClick={closeMenu}>Dashboard</Link>
             </Show>

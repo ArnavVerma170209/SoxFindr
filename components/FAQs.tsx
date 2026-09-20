@@ -15,10 +15,10 @@ const questions = [
     "question": "Who can apply?",
     "answer": "Any NSUT student in first or second year can explore societies and apply during the recruitment window"
   },
-  // {
-  //   "question": "How do I find a society for me?",
-  //   "answer": "Take our SoxQuiz which helps u determine which society is best for you"
-  // },
+  {
+    "question": "How do I know which society is right for me?",
+    "answer": "Start by exploring the societies and their departments to see what interests you. You can also take the SoxQuiz, which asks about your interests and suggests a society category with societies that may be a good fit for you."
+  },
   {
     "question": "Can I apply to multiple societies?",
     "answer": "Yes. You can explore and apply to multiple societies, subject to each society's own recruitment process."

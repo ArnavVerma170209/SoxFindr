@@ -81,13 +81,22 @@ export default async function SocietyPage({ params }: Props) {
           </div>
 
           {/* Apply button */}
-          <div className="shrink-0">
+          {user?.role === "SUPER ADMIN" ? 
+          <>
+           <div className="shrink-0">
+              <Link href={'/dashboard'} className="inline-flex items-center gap-2 rounded-lg bg-mist-800 px-4 py-2 text-sm font-medium text-mist-100 transition hover:bg-mist-700">
+                Dashboard
+              </Link>
+          </div>
+          </> 
+          : <>
+           <div className="shrink-0">
           {isSignedIn === true ?  isBranchUpdated === true ? <NewApplicationDialog/> : <UpdateBranchDialog /> : <Link href="/login" className="inline-flex items-center gap-2 rounded-lg bg-mist-800 px-4 py-2 text-sm font-medium text-mist-100 transition hover:bg-mist-700">
               Sign in to apply
             </Link>}
-            {/* {isBranchUpdated === true ? <NewApplicationDialog/> : <UpdateBranchDialog />}
-            <NewApplicationDialog/> */}
-          </div>
+          </div>  
+          </>}
+         
 
         </div>
       </section>
