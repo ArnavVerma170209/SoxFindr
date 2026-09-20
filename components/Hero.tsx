@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
 
      
-      <Countdown targetDate="2026-09-25T00:00:00" />
+      <Countdown targetDate="2026-10-11T00:00:00" />
        <div className="w-full flex justify-center lg:hidden items-center my-4">
 
   <Show when="signed-out">
