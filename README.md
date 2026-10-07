@@ -45,7 +45,6 @@ Instead of searching through scattered information about different societies, So
 - PostgreSQL
 - Neon
 - Drizzle ORM
-- Prisma PostgreSQL Adapter
 
 ### Development
 
