@@ -8,7 +8,7 @@ import Navbar from "@/components/navbar";
 type Category = "Technical" | "Cultural" | "Literary" | "Social";
 
 type Question = {
-  prompt: string;
+  question: string;
   options: {
     label: string;
     category: Category;
@@ -17,7 +17,7 @@ type Question = {
 
 const questions: Question[] = [
   {
-    prompt: "What would you most like to spend your society time doing?",
+    question: "What would you most like to spend your society time doing?",
     options: [
       { label: "Build something useful with technology", category: "Technical" },
       { label: "Perform, create, or put on a show", category: "Cultural" },
@@ -26,7 +26,7 @@ const questions: Question[] = [
     ],
   },
   {
-    prompt: "Pick the kind of event you would never want to miss.",
+    question: "Pick the kind of event you would never want to miss.",
     options: [
       { label: "A hackathon or a tech workshop", category: "Technical" },
       { label: "A concert, dance show, or theatre night", category: "Cultural" },
@@ -35,7 +35,7 @@ const questions: Question[] = [
     ],
   },
   {
-    prompt: "Which strength sounds most like you?",
+    question: "Which strength sounds most like you?",
     options: [
       { label: "I enjoy solving tricky problems", category: "Technical" },
       { label: "I express myself through creativity", category: "Cultural" },
@@ -44,7 +44,7 @@ const questions: Question[] = [
     ],
   },
   {
-    prompt: "What kind of teammate are you?",
+    question: "What kind of teammate are you?",
     options: [
       { label: "The builder who turns ideas into projects", category: "Technical" },
       { label: "The energetic performer and collaborator", category: "Cultural" },
@@ -53,7 +53,7 @@ const questions: Question[] = [
     ],
   },
   {
-    prompt: "Choose the impact you want to leave on campus.",
+    question: "Choose the impact you want to leave on campus.",
     options: [
       { label: "New products, tools, and technical knowledge", category: "Technical" },
       { label: "Memorable experiences and creative energy", category: "Cultural" },
@@ -112,15 +112,24 @@ const recommendations: Record<Category, {
   },
 };
 
+const getWinner = (answers: Category[]) => {
+  const scores: Record<Category, number> = { Technical: 0, Cultural: 0, Literary: 0, Social: 0 };
+  answers.forEach((category) => scores[category]++);
+  return (Object.keys(scores) as Category[]).reduce((best, category) =>
+    scores[category] > scores[best] ? category : best,
+  );
+};
+
 export default function SocQuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Category[]>([]);
-  const [result, setResult] = useState<Category | null>(null);
+
+  const finished = currentQuestion === questions.length;
+  const result = finished ? getWinner(answers) : null;
+  const recommendation = result ? recommendations[result] : null;
 
   const selectedAnswer = answers[currentQuestion];
-  const progress = ((currentQuestion + (result ? 1 : 0)) / questions.length) * 100;
-
-  const recommendation = result ? recommendations[result] : null;
+  const progress = (currentQuestion / questions.length) * 100;
 
   const chooseAnswer = (category: Category) => {
     const nextAnswers = [...answers];
@@ -130,30 +139,12 @@ export default function SocQuizPage() {
 
   const nextQuestion = () => {
     if (!selectedAnswer) return;
-
-    if (currentQuestion === questions.length - 1) {
-      const scores = answers.reduce<Record<Category, number>>(
-        (totals, category) => {
-          totals[category] += 1;
-          return totals;
-        },
-        { Technical: 0, Cultural: 0, Literary: 0, Social: 0 },
-      );
-      scores[selectedAnswer] += 1;
-      const winner = (Object.keys(scores) as Category[]).reduce((best, category) =>
-        scores[category] > scores[best] ? category : best,
-      "Technical");
-      setResult(winner);
-      return;
-    }
-
     setCurrentQuestion((question) => question + 1);
   };
 
   const restart = () => {
     setCurrentQuestion(0);
     setAnswers([]);
-    setResult(null);
   };
 
   return (
@@ -189,11 +180,10 @@ export default function SocQuizPage() {
               <p className="font-mont text-sm font-semibold text-mist-400">
                 Question {currentQuestion + 1} <span className="text-mist-600">/ {questions.length}</span>
               </p>
-           
             </div>
             <fieldset>
               <legend className="max-w-3xl font-mono text-2xl font-bold leading-tight text-white md:text-4xl">
-                {questions[currentQuestion].prompt}
+                {questions[currentQuestion].question}
               </legend>
               <div className="mt-8 grid gap-3 md:grid-cols-2">
                 {questions[currentQuestion].options.map((option) => (

@@ -14,7 +14,6 @@ import { Button } from "../ui/button";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import { updateUserDetails } from "@/app/(actions)/actions/userDetails";
 import { Plus } from "lucide-react";
 import { ApplicationForm, applicationFormSchema } from "@/lib/validations/applicationForm";
 import { societyData } from "@/db/seed";

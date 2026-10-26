@@ -20,7 +20,8 @@ export default async function SocietyPage({ params }: Props) {
   const isBranchUpdated = Boolean(user?.branch?.trim());
 
   
-  const societyName = slug.replace(/-/g, ' ');
+  const societyName = slug.replace(/-/g, ' ')
+  
   let society;
 
   for(let i=0; i<societyData.length; i++){
