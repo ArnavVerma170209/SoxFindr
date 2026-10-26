@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SoxFindr
 
-## Getting Started
+> Find your passion. Build your skills. Connect with like-minded individuals.
 
-First, run the development server:
+SoxFindr is a student-focused platform designed to help students discover and explore societies at **Netaji Subhas University of Technology (NSUT)**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Instead of searching through scattered information about different societies, SoxFindr provides a centralized platform where students can explore societies, learn more about them, and take the next step toward getting involved.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Live Demo:** https://sox-findr-plum.vercel.app/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- Browse and explore student societies
+- Dedicated pages for individual societies
+- Society descriptions and categories
+- User authentication with Clerk
+- Student dashboard
+- Society registration flow
+- FAQ section
+- Responsive design for desktop and mobile
+- Interactive UI and page transitions
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Frontend
 
-## Deploy on Vercel
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+- Phosphor Icons
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Clerk
+
+### Database
+
+- PostgreSQL
+- Neon
+- Drizzle ORM
+
+### Development
+
+- Bun
+- ESLint
+- TypeScript
+- Drizzle Kit
+
+---
+
+## Project Structure
+
+```text
+SoxFindr/
+├── app/                    # Next.js application routes
+├── components/             # Reusable UI components
+│   ├── Societies/          # Society-related components
+│   └── ui/                 # Reusable UI primitives
+├── db/                     # Database and seed data
+├── drizzle/                # Drizzle configuration
+├── lib/                    # Utility functions
+├── public/                 # Static assets
+├── .gitignore
+├── bun.lock
+├── components.json
+├── drizzle.config.ts
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── proxy.ts
+└── tsconfig.json
